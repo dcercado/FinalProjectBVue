@@ -1,27 +1,22 @@
 <template>
   <div class="landing">
+    <!-- NAVBAR START -->
     <nav class="navbar navbar-light bg-light sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="landing.html"
-          ><img
-            src="assets/img/MillerLogoFromMarketing.png"
-            alt="Diamonds are formed under pressure"
-            width="100px"
+        <a class="navbar-brand" href="/landing">
+          <img
+            :src="millerLogo"
+            class="navbar-brand"
+            alt="Miller's logo"
+            style="width: 100px"
         /></a>
 
         <div class="nav nav-fill sub_Nav">
           <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
+              <a class="nav-link" aria-current="page" href="landing">Home</a>
             </li>
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                data-bs-toggle="modal"
-                data-bs-target="#videoModal"
-                >Profile</a
-              >
-            </li>
+
             <li class="nav-item">
               <a
                 class="nav-link"
@@ -30,11 +25,16 @@
                 >Join Now</a
               >
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="schedule.html">Schedule</a>
+              <a class="nav-link" aria-current="page" href="schedule"
+                >Schedule</a
+              >
             </li>
           </ul>
         </div>
+
+        <!-- HAMBURGER MENU START -->
         <button
           class="navbar-toggler"
           type="button"
@@ -88,8 +88,11 @@
             </ul>
           </div>
         </div>
+        <!-- HAMBURGER MENU STOP -->
       </div>
     </nav>
+    <!-- NAVBAR STOP -->
+    <!-- BODY START -->
     <div class="container">
       <img
         :src="diamond"
@@ -111,14 +114,15 @@
 
       <div class="card-body">
         <div class="row">
-          <div class="col-4">
+          <div class="col-5">
+            <img :src="hbrown" class="col-12 row" width="100%" />
             <img src="assets/img/henry-brown-FB.jpg" alt="" width="100%" />
           </div>
           <div
             class="col-7"
             style="text-align: left; padding-right: 5%; padding-left: 5%"
           >
-            <p>
+            <div>
               We are so excited to welcome you to this year’s Leadership Meeting
               which will be fully virtual for the first time ever! This
               interactive, day long event will challenge you to adopt a “Growth
@@ -127,7 +131,7 @@
               have shown how resilient we can be, especially in a year marked by
               unprecedented pressure. Makes our Miller diamond seem even cooler
               now, doesn’t it?
-            </p>
+            </div>
 
             <button
               type="submit"
@@ -162,20 +166,17 @@
         </p>
       </div>
     </div>
-
+    <!-- BODY STOP -->
+    <!-- FOOTER START -->
     <div class="footer-clean">
       <footer>
         <div class="container">
           <footer class="py-3 my-4 nav-pills">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
               <li class="nav-item">
-                <router-link class="nav-link" to="/landing"
-                  >Landing</router-link
-                >
+                <a class="nav-link" aria-current="page" href="landing">Home</a>
               </li>
-              <li class="nav-item">
-                <a href="profile.html" class="nav-link">Profile</a>
-              </li>
+              <!-- MODAL 1/3 START -->
               <li class="nav-item">
                 <a
                   class="nav-link"
@@ -184,9 +185,11 @@
                   >Join Now</a
                 >
               </li>
-
+              <!-- MODAL 1/3 STOP -->
               <li class="nav-item">
-                <a href="schedule.html" class="nav-link">Schedule</a>
+                <a class="nav-link" aria-current="page" href="schedule"
+                  >Schedule</a
+                >
               </li>
               <li class="nav-item">
                 <a
@@ -202,16 +205,82 @@
           </footer>
         </div>
       </footer>
+      <!-- FOOTER STOP -->
     </div>
+    <!-- MODAL 2/3 START -->
+    <div
+      class="modal fade"
+      id="videoModal"
+      tabindex="-1"
+      aria-labelledby="videoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="videoModal">
+              Miller Leadership Meeting Livestream
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+
+          <div class="modal-body">
+            <iframe
+              id="millerVideo"
+              width="100%"
+              height="360"
+              src="https://www.youtube.com/embed/3wlHvLlPfLs"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn nav-link"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- MODAL 2/3 STOP -->
   </div>
 </template>
+
 <script>
+//MODAL 3/3 START ( I BELIEVE IT MIGHT NEED A METHOD TO RUN/ CRASHING AT THIS TIME)
+
+// src = "jquery-3.5.1.min.js";
+// $(document).ready(function () {
+//   var url = $("#millerVideo").attr("src");
+//   $("#videoModal").on("hide.bs.modal", function () {
+//     $("#millerVideo").attr("src", "");
+//   });
+//   $("#videoModal").on("show.bs.modal", function () {
+//     $("#millerVideo").attr("src", url);
+//   });
+// });
+
 import diamond from "/src/assets/img/Miller Logo Diamond.png";
+import hbrown from "/src/assets/img/henry-brown-FB.jpg";
+import millerLogo from "/src/assets/img/MillerLogoFromMarketing.png";
 
 export default {
   data() {
     return {
       diamond: diamond,
+      millerLogo: millerLogo,
+      hbrown: hbrown,
     };
   },
 };

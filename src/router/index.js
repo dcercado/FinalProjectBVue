@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Login.vue'
 import Landing from '../views/Landing.vue'
+import Schedule from '../views/Schedule.vue'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/landing',
     name: 'Landing',
     component: Landing
+  },
+  {
+    path: '/schedule',
+    name: 'Schedule',
+    component: Schedule
   }
 ]
 

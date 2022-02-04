@@ -1,7 +1,7 @@
 <template>
   <div class="schedule">
     <!-- NAVBAR START -->
-    <nav class="navbar navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-light bg-light sticky-top border-bottom">
       <div class="container-fluid">
         <a class="navbar-brand" href="/landing">
           <img
@@ -51,16 +51,27 @@
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              Miller Sections
-            </h5>
-            <button
-              type="button"
-              class="btn-close reset"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
+          <div class="card-header" style="width: 100%">
+            <div class="row">
+              <div class="col-8">
+                <h5
+                  class="offcanvas-title"
+                  style="text-align: right"
+                  id="offcanvasNavbarLabel"
+                >
+                  Miller Sections
+                </h5>
+              </div>
+              <div class="col-4">
+                <button
+                  type="button"
+                  class="btn-close reset"
+                  data-bs-dismiss="offcanvas"
+                  style="float: right"
+                  aria-label="Close"
+                ></button>
+              </div>
+            </div>
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -79,8 +90,9 @@
                 >
               </li>
               <li class="nav-item">
+                <!-- template tag it like a photo -->
                 <a
-                  href="mailto:itsupport@mecojax.com?subject=Requesting%20Leadership%20Meeting%20Assistance"
+                  href="mailto:itsupport@mecojax.com?subject=Requesting Leadership Meeting Assistance"
                   class="nav-link"
                   >IT Support</a
                 >

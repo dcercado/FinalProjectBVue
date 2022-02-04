@@ -1,7 +1,7 @@
 <template>
   <div class="landing">
     <!-- NAVBAR START -->
-    <nav class="navbar navbar-light bg-light sticky-top">
+    <nav class="navbar navbar-light bg-light sticky-top border border-bottom">
       <div class="container-fluid">
         <a class="navbar-brand" href="/landing">
           <img
@@ -53,12 +53,16 @@
         >
           <div class="card-header" style="width: 100%">
             <div class="row">
-              <div class="col-6">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              <div class="col-8">
+                <h5
+                  class="offcanvas-title"
+                  style="text-align: right"
+                  id="offcanvasNavbarLabel"
+                >
                   Miller Sections
                 </h5>
               </div>
-              <div class="col-6">
+              <div class="col-4">
                 <button
                   type="button"
                   class="btn-close reset"

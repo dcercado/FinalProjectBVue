@@ -51,16 +51,23 @@
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
         >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              Miller Sections
-            </h5>
-            <button
-              type="button"
-              class="btn-close reset"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
+          <div class="card-header" style="width: 100%">
+            <div class="row">
+              <div class="col-6">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                  Miller Sections
+                </h5>
+              </div>
+              <div class="col-6">
+                <button
+                  type="button"
+                  class="btn-close reset"
+                  data-bs-dismiss="offcanvas"
+                  style="float: right"
+                  aria-label="Close"
+                ></button>
+              </div>
+            </div>
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -79,8 +86,9 @@
                 >
               </li>
               <li class="nav-item">
+                <!-- template tag it like a photo -->
                 <a
-                  href="mailto:itsupport@mecojax.com?subject=Requesting%20Leadership%20Meeting%20Assistance"
+                  href="mailto:itsupport@mecojax.com?subject=Requesting Leadership Meeting Assistance"
                   class="nav-link"
                   >IT Support</a
                 >
@@ -114,15 +122,19 @@
 
       <div class="card-body">
         <div class="row">
-          <div class="col-5">
-            <img :src="hbrown" class="col-12 row" width="100%" />
-            <img src="assets/img/henry-brown-FB.jpg" alt="" width="100%" />
+          <div class="col-12 col-lg-6 mb-5 mt-5">
+            <img :src="hbrown" class="col-12 row; shadow" width="100%" />
           </div>
           <div
-            class="col-7"
-            style="text-align: left; padding-right: 5%; padding-left: 5%"
+            class="col-lg-6 mb-5 mt-5"
+            style="
+              text-align: left;
+              padding-right: 0%;
+              padding-left: 5%;
+              font-size: 1.25em;
+            "
           >
-            <div>
+            <p>
               We are so excited to welcome you to this year’s Leadership Meeting
               which will be fully virtual for the first time ever! This
               interactive, day long event will challenge you to adopt a “Growth
@@ -131,17 +143,21 @@
               have shown how resilient we can be, especially in a year marked by
               unprecedented pressure. Makes our Miller diamond seem even cooler
               now, doesn’t it?
-            </div>
-
-            <button
-              type="submit"
-              class="btn mt-3"
-              data-bs-toggle="modal"
-              data-bs-target="#videoModal"
-              style="background-color: #007a4d; color: white"
+            </p>
+            <div
+              class="col-lg-6"
+              style="margin: auto; padding-right: 0%; text-align: center"
             >
-              Join Now
-            </button>
+              <button
+                type="submit"
+                class="btn mt-3"
+                data-bs-toggle="modal"
+                data-bs-target="#videoModal"
+                style="background-color: #007a4d; color: white"
+              >
+                Join Now
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -150,7 +166,7 @@
       <div class="card-header">
         <h1>Miller Electric Company History</h1>
       </div>
-      <div class="card-body">
+      <div class="card-body mt-5" style="font-size: 1.25em; text-align: left">
         <p>
           Founded in 1928, Miller Electric Company has grown from a local
           electrical contractor to a national company with over 2,000 employees.
@@ -192,11 +208,7 @@
                 >
               </li>
               <li class="nav-item">
-                <a
-                  href="mailto:itsupport@mecojax.com?subject=Requesting%20Leadership%20Meeting%20Assistance"
-                  class="nav-link"
-                  >IT Support</a
-                >
+                <a :href="'mailto:' + email" class="nav-link">IT Support</a>
               </li>
             </ul>
             <p class="text-center text-muted">
@@ -234,7 +246,7 @@
               id="millerVideo"
               width="100%"
               height="360"
-              src="https://www.youtube.com/embed/3wlHvLlPfLs"
+              :src="urlSrc"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -281,7 +293,19 @@ export default {
       diamond: diamond,
       millerLogo: millerLogo,
       hbrown: hbrown,
+      email:
+        "itsupport@mecojax.com?subject=Requesting%20Leadership%20Meeting%20Assistance",
+      urlSrc: "https://www.youtube.com/embed/3wlHvLlPfLs",
     };
+  },
+  mounted() {
+    const videoModal = document.getElementById("videoModal");
+    videoModal.addEventListener("shown.bs.modal", () => {
+      this.urlSrc = "https://www.youtube.com/embed/3wlHvLlPfLs";
+    });
+    videoModal.addEventListener("hidden.bs.modal", () => {
+      this.urlSrc = "";
+    });
   },
 };
 </script>

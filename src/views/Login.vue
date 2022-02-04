@@ -10,14 +10,15 @@
               </div>
               <form style="padding: 5%" action="./landing.html" method="GET">
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"
+                  <label for="exampleFormControlInput1" class="form-label"
                     >Email address</label
                   >
                   <input
                     type="email"
                     class="form-control"
-                    id="exampleInputEmail1"
+                    id="exampleFormControlInput1"
                     aria-describedby="emailHelp"
+                    placeholder="name@example.com"
                   />
                   <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                 </div>-->
@@ -32,18 +33,20 @@
                     id="exampleInputPassword1"
                   />
                 </div>
-                <!--<div class="mb-3 form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                            </div>-->
-                <button
-                  type="submit"
-                  class="btn mt-3"
-                  style="background-color: #007a4d; color: white"
-                  @click="goToHome"
-                >
-                  Submit
-                </button>
+                <div class="col-md-5" style="margin: auto; align-self: center">
+                  <button
+                    type="submit"
+                    class="btn mt-3;"
+                    style="
+                      background-color: #007a4d;
+                      color: white;
+                     x
+                    "
+                    @click="goToHome"
+                  >
+                    Submit
+                  </button>
+                </div>
               </form>
             </div>
           </div>
@@ -54,14 +57,13 @@
 </template>
 
 <script>
-
 import logo from "/src/assets/img/MillerLogoFromMarketing.png";
 
 export default {
   data() {
     return {
       logo: logo,
-    }
+    };
   },
   methods: {
     goToHome() {

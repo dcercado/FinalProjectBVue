@@ -14,7 +14,7 @@
         <div class="nav nav-fill sub_Nav">
           <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="landing">Home</a>
+              <a class="nav-link" aria-current="page" href="landing">goHome</a>
             </li>
 
             <li class="nav-item">

@@ -28,7 +28,7 @@
 
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="schedule">
-                testettetetete Schedule</a
+                test new test Schedule</a
               >
             </li>
           </ul>

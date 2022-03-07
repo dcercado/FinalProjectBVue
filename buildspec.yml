@@ -1,5 +1,6 @@
 version: 0.2
 
+
 phases:
   install:
     commands:
@@ -10,6 +11,8 @@ phases:
     commands:
       - echo Pre_build Phase
       - npm install
+      - echo Installing vue router
+      - vue add router
   build:
     commands:
       - echo Build Phase

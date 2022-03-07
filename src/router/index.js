@@ -18,7 +18,7 @@ const routes = [
     path: '/schedule',
     name: 'Schedule',
     component: Schedule
-  }
+  },
 ]
 
 const router = createRouter({

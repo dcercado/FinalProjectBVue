@@ -20,4 +20,5 @@ phases:
   post_build:
     commands:
       - echo PostBuild Phase
-      - aws s3 sync ./dist $S3_BUCKET
+      - echo BUCKET $S3_BUCKET
+      - aws s3 sync ./dist s3://projectbvue

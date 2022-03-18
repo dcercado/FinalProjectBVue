@@ -33,8 +33,7 @@
                     id="exampleInputPassword1"
                   />
                 </div>
-                <!-- submit button -->
-                <div class="col-md-12" style="margin: auto; align-self: center">
+                <div class="col-md-5" style="margin: auto; align-self: center">
                   <button
                     type="submit"
                     class="btn mt-3;"
@@ -46,19 +45,6 @@
                     @click="goToHome"
                   >
                     Submit
-                  </button>
-                  <!-- sign in button -->
-                  <button
-                    type="submit"
-                    class="btn mt-3;"
-                    style="
-                      background-color: #007a4d;
-                      color: white;
-                     x
-                    "
-                    @click="goToHome"
-                  >
-                    Sign Up
                   </button>
                 </div>
               </form>

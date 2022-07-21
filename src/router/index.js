@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '/src/views/Login.vue'
 import Landing from '/src/views/Landing.vue'
-import Schedule from '../Schedule.vue'
+import Schedule from '/src/views/Schedule.vue'
 import Signup from '/src/views/Signup.vue'
 import ForgotPassword from '/src/views/ForgotPassword.vue'
 
@@ -12,12 +12,12 @@ const routes = [
     component: Login
   },
   {
-    path: '/Signup',
+    path: '/signup',
     name: 'Signup',
     component: Signup
   },
   {
-    path: '/ForgotPassword',
+    path: '/forgotPassword',
     name: 'ForgotPassword',
     component: ForgotPassword
   },

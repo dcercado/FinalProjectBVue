@@ -34,29 +34,39 @@
                   />
                 </div>
                 <!-- submit button -->
-                <div class="col-md-12" style="margin: auto; align-self: center">
+                <div
+                  class="column"
+                  style="
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin: auto;
+                  "
+                >
                   <button
                     type="submit"
                     class="btn mt-3;"
                     style="
                       background-color: #007a4d;
                       color: white;
+                      margin:auto;
                      x
                     "
                     @click="goToHome"
                   >
                     Submit
                   </button>
-                  <!-- sign in button -->
+                  <!-- sign up button -->
                   <button
                     type="submit"
                     class="btn mt-3;"
                     style="
                       background-color: #007a4d;
                       color: white;
+                      margin:auto;
                      x
                     "
-                    @click="goToHome"
+                    @click="goToSignup"
                   >
                     Sign Up
                   </button>
@@ -82,6 +92,9 @@ export default {
   methods: {
     goToHome() {
       this.$router.push({ path: "/landing" });
+    },
+    goToSignup() {
+      this.$router.push({ path: "/signup" });
     },
   },
 };

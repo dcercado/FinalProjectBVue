@@ -13,31 +13,35 @@
                   <p class="text-center h1 fw-bold" style="padding-bottom: 3%">
                     Sign up
                   </p>
+                
                   <label for="exampleFormControlInput1" class="form-label"
                     >Name</label
                   >
                   <input
-                    type="email"
-                    class="form-control"
+                    type="name"
+                    class="form-control" 
+                 
                     id="exampleFormControlInput1"
-                    aria-describedby="emailHelp"
-                    placeholder="name@example.com"
+                    aria-describedby="name"
+                    placeholder="Full Name"
                   />
-                  <label for="exampleFormControlInput1" class="form-label"
+                  
+                  
+                  <label for="exampleFormControlInput1" class="form-label" style="padding-top: 2%"
                     >Email address</label
                   >
                   <input
                     type="email"
+            
                     class="form-control"
                     id="exampleFormControlInput1"
                     aria-describedby="emailHelp"
-                    placeholder="name@example.com"
+                    placeholder="Email@mecojax.com"
                   />
                   <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                 </div>-->
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label"
+                
+                  <label for="exampleInputPassword1" class="form-label" style="padding-top: 2%"
                     >Password</label
                   >
                   <input
@@ -45,16 +49,17 @@
                     class="form-control"
                     id="exampleInputPassword1"
                   />
-                </div>
+                
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label"
-                    >Password</label
+                    >Confirm Password</label
                   >
                   <input
                     type="Confirm password"
                     class="form-control"
                     id="exampleInputPassword1"
                   />
+                  </div>
                 </div>
                 <!-- submit button -->
                 <div
@@ -86,6 +91,7 @@
                   <a href="/" class="fw-bold text-body"><u>Login here</u></a>
                 </p>
               </form>
+              
             </div>
           </div>
         </div>
@@ -101,6 +107,13 @@ export default {
   data() {
     return {
       logo: logo,
+      username: "",
+      password: "",
+      confirm_password: "",
+      name: "",
+      email: ""
+
+
     };
   },
   methods: {

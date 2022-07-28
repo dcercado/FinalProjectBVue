@@ -1,12 +1,12 @@
 import Vue from 'vue'
-import {createStore} from 'vuex'
+import { createStore } from 'vuex'
 
 import Auth from '../Warehouse/Auth'
 
 //Vue.use(Vuex)
 
 
-export default  createStore({
+export default createStore({
     modules: {
         Auth
     },

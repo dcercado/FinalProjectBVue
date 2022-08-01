@@ -290,6 +290,7 @@
 import diamond from "/src/assets/img/Miller Logo Diamond.png";
 import hbrown from "/src/assets/img/henry-brown-FB.jpg";
 import millerLogo from "/src/assets/img/MillerLogoFromMarketing.png";
+//import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -311,5 +312,8 @@ export default {
       this.urlSrc = "";
     });
   },
+  // computed:{
+  //   ...mapGetters([isLoggedIn])
+  // }
 };
 </script>

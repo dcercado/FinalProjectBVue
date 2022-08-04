@@ -3,18 +3,21 @@ import App from './App.vue'
 import router from './router'
 import store from './views/store'
 import axios from 'axios';
-import vue from 'vue';
+import Vue from 'vue';
 
 //setting up default vue's http module for api calls
-Vue.config.productionTip = false
+//Vue.config.productionTip = false
 
 //load the token from the localStorage
-Vue.prototype.$http = axios;
+//Vue.prototype.$http = axios;
 const token = localStorage.getItem("token");
 // Is there is any token then we will simply append defauly axios authorization headers
 if (token) {
     Vue.prototype.$http.defaults.headers.common['Authorization'] = token;
 }
+const app = createApp(App);
+app.config.globalProperties.$http = axios
+app.use(router).use(router).mount('#app')
 
 new Vue({
     router,
@@ -40,5 +43,4 @@ new Vue({
 // Initialize Firebase
 //const app = initializeApp(firebaseConfig);
 
-createApp(App).use(router).use(router).mount('#app')
 

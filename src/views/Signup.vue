@@ -8,7 +8,7 @@
               <div class="text-center" style="padding: 3%">
                 <img :src="logo" alt="Miller logo" style="width: 50%" />
               </div>
-              <form style="padding: 5%" action="http://localhost:5000/api/users/register" method="POST">
+              <form @submit.prevent = "registerUser" style="padding: 5%" action="http://localhost:5000/api/users/register" method="POST">
                 <div class="mb-3">
                   <p class="text-center h1 fw-bold" style="padding-bottom: 3%">
                     Sign up
@@ -102,7 +102,7 @@
 
 <script>
 import logo from "/src/assets/img/MillerLogoFromMarketing.png";
-
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -123,6 +123,23 @@ export default {
     goToSignup() {
       this.$router.push({ path: "/signup" });
     },
+    ...mapActions(['register']),
+    registerUser(){
+  
+        let user = {
+          username: this.username,
+          password: this.password,
+          confirm_password: this.confirm_password,
+          email: this.email,
+          name: this.name
+        };
+        this.register(user).then(res =>{
+          if (res.data.success) {
+            this.$router.push("login");
+          }
+        });
+      
+    }
   },
 };
 </script>

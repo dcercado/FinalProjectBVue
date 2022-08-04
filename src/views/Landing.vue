@@ -27,8 +27,14 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="schedule">
-                test in views Schedule</a
+              <a class="nav-link" @click.prevent='logoutUser' aria-current="page" href="schedule">
+              Schedule</a
+              >
+            </li>
+             
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="login">
+              Logout</a
               >
             </li>
           </ul>
@@ -290,7 +296,7 @@
 import diamond from "/src/assets/img/Miller Logo Diamond.png";
 import hbrown from "/src/assets/img/henry-brown-FB.jpg";
 import millerLogo from "/src/assets/img/MillerLogoFromMarketing.png";
-//import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   data() {
@@ -312,8 +318,14 @@ export default {
       this.urlSrc = "";
     });
   },
-  // computed:{
-  //   ...mapGetters([isLoggedIn])
-  // }
+   computed:{
+     ...mapGetters(['isLoggedIn'])
+   },
+   methods:{
+    ...mapActions(['logout']),
+    logoutUser(){
+      this.logout();
+    }
+   }
 };
 </script>

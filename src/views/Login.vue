@@ -8,7 +8,7 @@
               <div class="text-center" style="padding: 3%">
                 <img :src="logo" alt="Miller logo" style="width: 50%" />
               </div>
-              <form style="padding: 5%" action="./landing.html" method="GET">
+              <form @click.prevent="loginUser" style="padding: 5%" action="./landing.html" method="GET">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label"
                     >Email address</label
@@ -82,7 +82,7 @@
 
 <script>
 import logo from "/src/assets/img/MillerLogoFromMarketing.png";
-
+import { mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -96,6 +96,24 @@ export default {
     goToSignup() {
       this.$router.push({ path: "/signup" });
     },
+    loginUser(){
+      console.log(this.username, this.password);
+    },
+    ...mapActions(['login']),
+    loginUser(){
+      let user = {
+        username: this.username,
+        password: this.password
+      };
+      this.login(user)
+      .then(res =>{
+        if(res.data.success){
+          this.$router.push('/profile');
+        }
+      }).catch(err => {
+        console.log(err);
+      });
+    }
   },
 };
 </script>

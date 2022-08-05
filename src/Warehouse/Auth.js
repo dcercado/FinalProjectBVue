@@ -19,37 +19,47 @@ const getters = {
     authState: state => state.status,
     user: state => state.user
 };
-
+const host = 'http://localhost:5000';
 const actions = {
     //Login Action
     async login({ commit }, user) {
         commit('auth_request');
-        let res = await axios.post('http://localhost:8080/api/users/login', user)
-        if (res.data.sucess) {
-            const token = res.data.token;
-            const user = res.data.user;
-            //store the token into the localstorage
-            localStorage.setItem('token', token);
-            //set the axios defaults
-            axios.defaults.headers.common['Authorization'] = token;
-            commit('auth_success', token, user);
+        try {
+            let res = await axios.post(host + '/api/users/login', user)
+            if (res.data.success) {
+                const token = res.data.token;
+                const user = res.data.user;
+                //store the token into the localstorage
+                localStorage.setItem('token', token);
+                //set the axios defaults
+                axios.defaults.headers.common['Authorization'] = token;
+                commit('auth_success', token, user);
+            }
+            return res;
         }
-        return res;
+        catch (err) {
+            commit('register_error', err)
+        }
     },
     //Register User
     async register({
         commit
     }, userData) {
         commit('register_request');
-        let res = await axios.post('http://localhost:8080/api/users/register', userData);
+        try {
+        let res = await axios.post(host + '/api/users/register', userData);
         if (res.data.success !== undefined) {
             commit('register_success');
         }
         return res;
+    }
+    catch (err) {
+        commit('register_error', err)
+    }
     },
     //Logout the user
-    async logout(commit) {
-        await localStorage.removeItem('item');
+    async logout({ commit }) {
+        await localStorage.removeItem('token');
         commit('logout');
         delete axios.defaults.headers.common['Authorization'];
         router.push('/login');
@@ -71,6 +81,11 @@ const mutations = {
     },
     register_success(state) {
         state.status = 'success'
+    },
+    logout(state) {
+        state.status = ''
+        state.token = ''
+        state.user = ''
     }
 };
 

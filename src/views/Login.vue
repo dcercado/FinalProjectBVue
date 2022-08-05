@@ -96,9 +96,7 @@ export default {
     goToSignup() {
       this.$router.push({ path: "/signup" });
     },
-    loginUser(){
-      console.log(this.username, this.password);
-    },
+   
     ...mapActions(['login']),
     loginUser(){
       let user = {
@@ -108,7 +106,7 @@ export default {
       this.login(user)
       .then(res =>{
         if(res.data.success){
-          this.$router.push('/profile');
+          this.$router.push('/landing');
         }
       }).catch(err => {
         console.log(err);

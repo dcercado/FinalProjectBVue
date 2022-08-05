@@ -4,22 +4,29 @@ import Landing from '/src/views/Landing.vue'
 import Schedule from '/src/views/Schedule.vue'
 import Signup from '/src/views/Signup.vue'
 import ForgotPassword from '/src/views/ForgotPassword.vue'
+import store from '/src/views/store';
 
 const routes = [
   {
     path: '/',
     name: 'Login',
-    component: Login
+    component: Login,
+    meta: {
+      requiresGuest: true
+    }
   },
   {
     path: '/login',
-    name: 'Login',
+    name: 'userLogin',
     component: Login
   },
   {
     path: '/signup',
     name: 'Signup',
-    component: Signup
+    component: Signup,
+    meta: {
+      requiresGuest: true
+    }
   },
   {
     path: '/forgotPassword',
@@ -43,4 +50,23 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!store.getters.isLoggedIn) {
+      //redirect to the Login Page
+      next('/');
+    } else {
+      next();
+    }
+  } else if (to.matched.some(record => record.meta.requiresGuest)) {
+    if (store.getters.isLoggedIn) {
+      //redirect to the Login Page
+      next('/profile');
+    } else {
+      next();
+    }
+  } else {
+    next()
+  }
+});
 export default router

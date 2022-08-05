@@ -17,13 +17,13 @@ if (token) {
 }
 const app = createApp(App);
 app.config.globalProperties.$http = axios
-app.use(router).use(router).mount('#app')
+app.use(router).use(store).mount('#app')
 
-new Vue({
-    router,
-    store,
-    render: h => h(App)
-}).$mount('#app')
+// new Vue({
+//     router,
+//     store,
+//     render: h => h(App)
+// }).$mount('#app')
 
 // Import the functions you need from the SDKs you need
 //import { initializeApp } from "firebase/app";
@@ -44,3 +44,4 @@ new Vue({
 //const app = initializeApp(firebaseConfig);
 
 
+export default Vue

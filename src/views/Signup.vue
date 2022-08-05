@@ -8,7 +8,7 @@
               <div class="text-center" style="padding: 3%">
                 <img :src="logo" alt="Miller logo" style="width: 50%" />
               </div>
-              <form @submit.prevent = "registerUser" style="padding: 5%" action="http://localhost:5000/api/users/register" method="POST">
+              <form @submit.prevent = "registerUser" style="padding: 5%" action="http://localhost:8080/api/users/register" method="POST">
                 <div class="mb-3">
                   <p class="text-center h1 fw-bold" style="padding-bottom: 3%">
                     Sign up

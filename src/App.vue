@@ -1,5 +1,11 @@
 <template>
+<div id="app">
+  <div class ="container">
+    <Errors v-if = "error" :msg="error" />
+
   <router-view />
+  </div>
+</div>
 </template>
 
 <style>
@@ -28,7 +34,16 @@ h2 {
 
 
 <script>
+import { mapGetters } from 'vuex';
+import Errors from './components/errors.vue'
 export default {
+  components: {
+    Errors
+  },
+  computed: {
+    ...mapGetters['error']
+  }
+  
   watch: {
     $route: function () {
       const getWeather = async () => {
@@ -41,6 +56,8 @@ export default {
 
         return data;
       };
+
+      
 
       getWeather().then((data) => {
         let temp = data.main.temp.toString().slice(0, 2);

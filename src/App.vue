@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     ...mapGetters['error']
-  }
+  },
   
   watch: {
     $route: function () {

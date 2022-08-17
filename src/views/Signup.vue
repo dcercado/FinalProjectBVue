@@ -24,6 +24,8 @@
                     id="exampleFormControlInput1"
                     aria-describedby="name"
                     placeholder="Full Name"
+                    name="name"
+                    v-model="name"
                   />
                   
                   
@@ -37,6 +39,8 @@
                     id="exampleFormControlInput1"
                     aria-describedby="emailHelp"
                     placeholder="Email@mecojax.com"
+                    name="email"
+                    v-model = "email"
                   />
                   <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                 </div>-->
@@ -48,6 +52,8 @@
                     type="password"
                     class="form-control"
                     id="exampleInputPassword1"
+                     name="password"
+                    v-model=" password"
                   />
                 
                 <div class="mb-3">
@@ -58,6 +64,9 @@
                     type="Confirm password"
                     class="form-control"
                     id="exampleInputPassword1"
+                    name="confirm_password"            
+                    v-model="confirm_password"
+
                   />
                   </div>
                 </div>
@@ -133,6 +142,7 @@ export default {
           email: this.email,
           name: this.name
         };
+        console.log('user signup data', user)
         this.register(user).then(res =>{
           if (res.data.success) {
             this.$router.push("login");

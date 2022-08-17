@@ -47,15 +47,15 @@ const actions = {
     }, userData) {
         commit('register_request');
         try {
-        let res = await axios.post(host + '/api/users/register', userData);
-        if (res.data.success !== undefined) {
-            commit('register_success');
+            let res = await axios.post(host + '/api/users/register', userData);
+            if (res.data.success !== undefined) {
+                commit('register_success');
+            }
+            return res;
         }
-        return res;
-    }
-    catch (err) {
-        commit('register_error', err)
-    }
+        catch (err) {
+            commit('register_error', err)
+        }
     },
     //Logout the user
     async logout({ commit }) {
@@ -78,8 +78,8 @@ const mutations = {
         state.status = 'success'
         state.error = null
     },
-    auth_error(state,er){
-        state.error = err.response.data.msg 
+    auth_error(state, err) {
+        state.error = err.response.data.msg
     },
     register_request(state) {
         state.error = null
@@ -89,8 +89,8 @@ const mutations = {
         state.error = null
         state.status = 'success'
     },
-    register_error(state, err){
-state.error = err.response.data.msg
+    register_error(state, err) {
+        state.error = err.response.data.msg
     },
     logout(state) {
         state.error = null
@@ -98,7 +98,7 @@ state.error = err.response.data.msg
         state.token = ''
         state.user = ''
     },
-    user_profile(state, user){
+    user_profile(state, user) {
         state.user = user
     }
 };

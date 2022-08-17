@@ -19,6 +19,8 @@
                     id="exampleFormControlInput1"
                     aria-describedby="emailHelp"
                     placeholder="name@example.com"
+                    
+
                   />
                   <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
                                 </div>-->
@@ -31,6 +33,7 @@
                     type="password"
                     class="form-control"
                     id="exampleInputPassword1"
+              
                   />
                 </div>
                 <div class="col-md-5" style="margin: auto; align-self: center">

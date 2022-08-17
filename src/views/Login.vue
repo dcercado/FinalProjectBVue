@@ -8,15 +8,16 @@
               <div class="text-center" style="padding: 3%">
                 <img :src="logo" alt="Miller logo" style="width: 50%" />
               </div>
-              <form @click.prevent="loginUser" style="padding: 5%" action="./landing.html" method="GET">
+              <form @submit.prevent="loginUser" style="padding: 5%">
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label"
+                  <label for="email" class="form-label"
                     >Email address</label
                   >
                   <input
                     type="email"
                     class="form-control"
-                    id="exampleFormControlInput1"
+                    id="email"
+                    v-model="email"
                     aria-describedby="emailHelp"
                     placeholder="name@example.com"
                   />
@@ -24,15 +25,21 @@
                                 </div>-->
                 </div>
                 <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label"
+                  <label for="password" class="form-label"
                     >Password</label
                   >
                   <input
                     type="password"
                     class="form-control"
-                    id="exampleInputPassword1"
+                    id="password"
+                    v-model="password"
                   />
                 </div>
+                <!-- Message Section -->
+                <div>
+                  <p>{{ loginError }}</p>
+                </div>
+                <!-- End Message Section -->
                 <!-- submit button -->
                 <div
                   class="column"
@@ -43,22 +50,19 @@
                     margin: auto;
                   "
                 >
-                  <button
+                  <input
                     type="submit"
                     class="btn mt-3;"
+                    value="Submit"
                     style="
                       background-color: #007a4d;
                       color: white;
                       margin:auto;
                      x
                     "
-                    @click="goToHome"
-                  >
-                    Submit
-                  </button>
+                    >
                   <!-- sign up button -->
                   <button
-                    type="submit"
                     class="btn mt-3;"
                     style="
                       background-color: #007a4d;
@@ -87,6 +91,9 @@ export default {
   data() {
     return {
       logo: logo,
+      email: "",
+      password: "",
+      loginError: ""
     };
   },
   methods: {
@@ -100,14 +107,17 @@ export default {
     ...mapActions(['login']),
     loginUser(){
       let user = {
-        username: this.username,
+        email: this.email,
         password: this.password
       };
       this.login(user)
       .then(res =>{
         if(res.data.success){
           this.$router.push('/landing');
+        } else {
+          this.loginError = res.data.msg
         }
+        console.log("Response: ", res.data)
       }).catch(err => {
         console.log(err);
       });

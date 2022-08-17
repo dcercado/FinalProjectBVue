@@ -27,7 +27,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" @click.prevent='logoutUser' aria-current="page" href="schedule">
+              <a class="nav-link"  aria-current="page" href="schedule">
               Schedule</a
               >
             </li>
@@ -86,12 +86,20 @@
                 <a
                   class="nav-link active"
                   aria-current="page"
-                  href="meetYourPresenters.html"
+                  href="profile"
+                  >Profile</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="meetYourPresenters"
                   >Meet Your Presenters</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="preMeetingInterviews.html"
+                <a class="nav-link" href="preMeetingInterviews"
                   >Pre-Meeting Interviews</a
                 >
               </li>

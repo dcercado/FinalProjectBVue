@@ -5,6 +5,7 @@ import Schedule from '/src/views/Schedule.vue'
 import Signup from '/src/views/Signup.vue'
 import ForgotPassword from '/src/views/ForgotPassword.vue'
 import store from '/src/views/store';
+import PreMeetingInterview from '/src/views/PreMeetingInterviews.vue'
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path: '/landing',
     name: 'Landing',
     component: Landing
+  },
+  {
+    path: '/preMeetingInterviews',
+    name: 'PreMeeting',
+    component: PreMeetingInterview
   },
   {
     path: '/schedule',

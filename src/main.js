@@ -1,22 +1,35 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './views/store'
+import { createApp } from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './views/store';
 import axios from 'axios';
 import Vue from 'vue';
+//import Vuex from 'vuex';
+
+
+
+//Vue.use(Vuex)
+//Vue.prototype.$ajax = axios
+//Vue.prototype.$http = axios
+//Vue.prototype.axios = axios
+//this.axios
 
 //setting up default vue's http module for api calls
 //Vue.config.productionTip = false
 
 //load the token from the localStorage
 //Vue.prototype.$http = axios;
+
 const token = localStorage.getItem("token");
+
+
 // Is there is any token then we will simply append defauly axios authorization headers
-if (token) {
-    Vue.prototype.$http.defaults.headers.common['Authorization'] = token;
-}
+
 const app = createApp(App);
 app.config.globalProperties.$http = axios
+if (token) {
+    app.config.globalProperties.$http.defaults.headers.common['Authorization'] = token;
+}
 app.use(router).use(store).mount('#app')
 
 // new Vue({

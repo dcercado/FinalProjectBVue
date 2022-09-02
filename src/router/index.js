@@ -6,11 +6,12 @@ import Signup from '/src/views/Signup.vue'
 import ForgotPassword from '/src/views/ForgotPassword.vue'
 import store from '/src/views/store';
 import PreMeetingInterview from '/src/views/PreMeetingInterviews.vue'
+import MeetYourPresenters from '/src/views/MeetYourPresenters'
 
 const routes = [
   {
     path: '/',
-    name: 'Login',
+    name: 'Index',
     component: Login,
     meta: {
       requiresGuest: true
@@ -18,7 +19,7 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'userLogin',
+    name: 'Login',
     component: Login
   },
   {
@@ -45,6 +46,11 @@ const routes = [
     component: PreMeetingInterview
   },
   {
+    path: '/meetyourpresenters',
+    name: 'MeetYourPresenters',
+    component: MeetYourPresenters
+  },
+  {
     path: '/schedule',
     name: 'Schedule',
     component: Schedule
@@ -60,14 +66,14 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (!store.getters.isLoggedIn) {
       //redirect to the Login Page
-      next('/');
+      next('/login');
     } else {
       next();
     }
   } else if (to.matched.some(record => record.meta.requiresGuest)) {
     if (store.getters.isLoggedIn) {
       //redirect to the Login Page
-      next('/profile');
+      next('/landing');
     } else {
       next();
     }

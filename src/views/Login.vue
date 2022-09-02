@@ -123,5 +123,8 @@ export default {
       });
     }
   },
+  created: function () {
+        localStorage.clear();
+    },
 };
 </script>

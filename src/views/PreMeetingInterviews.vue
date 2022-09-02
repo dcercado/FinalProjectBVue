@@ -87,7 +87,7 @@
                 <a
                   class="nav-link active"
                   aria-current="page"
-                  href="profile.html"
+                  href="profile"
                   >Profile</a
                 >
               </li>
@@ -95,12 +95,12 @@
                 <a
                   class="nav-link active"
                   aria-current="page"
-                  href="meetYourPresenters.html"
+                  href="meetYourPresenters"
                   >Meet Your Presenters</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="preMeetingInterviews.html"
+                <a class="nav-link" href="preMeetingInterviews"
                   >Pre-Meeting Interviews</a
                 >
               </li>

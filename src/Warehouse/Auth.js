@@ -19,7 +19,8 @@ const getters = {
     authState: state => state.status,
     user: state => state.user
 };
-const host = 'http://localhost:5000';
+const host = "http://ec2-3-92-62-194.compute-1.amazonaws.com:5000"
+//const localhost = 'http://localhost:5000';
 const actions = {
     //Login Action
     async login({ commit }, user) {

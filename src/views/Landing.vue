@@ -32,11 +32,13 @@
               >
             </li>
              
-            <li class="nav-item">
+            <!-- 
+              Moved Logout to the collapsable menu
+              <li class="nav-item">
               <a class="nav-link" aria-current="page" href="login">
               Logout</a
               >
-            </li>
+            </li> -->
           </ul>
         </div>
 
@@ -85,6 +87,8 @@
               <li class="nav-item">
                 <a
                   class="nav-link active"
+                  data-bs-toggle="modal"
+                data-bs-target="#profileModal"
                   aria-current="page"
                   href="profile"
                   >Profile</a
@@ -109,6 +113,11 @@
                   href="mailto:itsupport@mecojax.com?subject=Requesting Leadership Meeting Assistance"
                   class="nav-link"
                   >IT Support</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="login"
+                  >Logout</a
                 >
               </li>
             </ul>
@@ -284,6 +293,24 @@
       </div>
     </div>
     <!-- MODAL 2/3 STOP -->
+    <div 
+      id="profileModal"
+      class="modal fade"
+      tabindex="-1"
+      aria-labelledby="profileModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Profile</h5>
+          </div>
+          <div class="modal-body">
+    
+            
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
